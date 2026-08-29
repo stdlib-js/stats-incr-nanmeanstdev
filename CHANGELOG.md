@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-07-19)
+## Unreleased (2026-08-29)
 
 <section class="features">
 
@@ -34,6 +34,7 @@ This release closes the following issue:
 
 <details>
 
+-   [`f25221d`](https://github.com/stdlib-js/stdlib/commit/f25221d5fcb5e84cb0ad4951db6f08f254c12d15) - **docs:** update Markdown equation elements _(by stdlib-bot)_
 -   [`4c2733b`](https://github.com/stdlib-js/stdlib/commit/4c2733b97aee6c18bcda14e93a35d5ea1dd645ed) - **style:** fix lint error _(by Athan Reines)_
 -   [`992d620`](https://github.com/stdlib-js/stdlib/commit/992d6209e50658788ca2f3be12c807d91d4b166c) - **feat:** add `stats/incr/nanmeanstdev` [(#6148)](https://github.com/stdlib-js/stdlib/pull/6148) _(by Aarya Balwadkar, AaryaBalwadkarPHC, Philipp Burckhardt)_
 
