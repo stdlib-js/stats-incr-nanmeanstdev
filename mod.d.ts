@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,22 +16,27 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var incrmeanstdev = require( '@stdlib/stats-incr-meanstdev' );
-var isnan = require( '@stdlib/math-base-assert-is-nan' );
+import { ArrayLike } from '@stdlib/types/array';
 
-
-// MAIN //
+/**
+* If provided a value, the accumulator function returns updated results. If not provided a value, the accumulator function returns the current results.
+*
+* ## Notes
+*
+* @param x - input value
+* @returns output array or null
+*/
+type accumulator = ( x?: number ) => ArrayLike<number> | null;
 
 /**
 * Returns an accumulator function which incrementally computes an arithmetic mean and corrected sample standard deviation, ignoring `NaN` values.
 *
-* @param {Collection} [out] - output array
-* @throws {TypeError} output argument must be array-like
-* @returns {Function} accumulator function
+* @param out - output array
+* @returns accumulator function
 *
 * @example
 * var accumulator = incrnanmeanstdev();
@@ -39,10 +44,10 @@ var isnan = require( '@stdlib/math-base-assert-is-nan' );
 * var ms = accumulator();
 * // returns null
 *
-* ms = accumulator( 2.0 );
-* // returns [ 2.0, 0.0 ]
-*
 * ms = accumulator( NaN );
+* // returns null
+*
+* ms = accumulator( 2.0 );
 * // returns [ 2.0, 0.0 ]
 *
 * ms = accumulator( -5.0 );
@@ -57,31 +62,9 @@ var isnan = require( '@stdlib/math-base-assert-is-nan' );
 * ms = accumulator();
 * // returns [ 1.25, ~4.35 ]
 */
-function incrnanmeanstdev( out ) {
-	var meanstdev;
-	if ( arguments.length > 0 ) {
-		meanstdev = incrmeanstdev( out );
-	} else {
-		meanstdev = incrmeanstdev();
-	}
-	return accumulator;
-
-	/**
-	* If provided a value, the accumulator function returns updated accumulated values. If not provided a value, the accumulator function returns the current accumulated values.
-	*
-	* @private
-	* @param {number} [x] - input value
-	* @returns {(ArrayLikeObject|null)} output array or null
-	*/
-	function accumulator( x ) {
-		if ( arguments.length === 0 || isnan( x ) ) {
-			return meanstdev();
-		}
-		return meanstdev( x );
-	}
-}
+declare function incrnanmeanstdev( out?: ArrayLike<number> ): accumulator;
 
 
 // EXPORTS //
 
-module.exports = incrnanmeanstdev;
+export = incrnanmeanstdev;
